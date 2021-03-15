@@ -2,13 +2,7 @@ package com.morrisz.tools.samples.entity;
 
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
@@ -18,9 +12,8 @@ import java.util.Objects;
 @Table(name = "SYS_USER")
 public class SysUser {
 
-    @SequenceGenerator(name = "generator", sequenceName = "SYS_USER_S", allocationSize = 1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID", unique = true, nullable = false, precision = 10, scale = 0)
     private Integer userId;
 
